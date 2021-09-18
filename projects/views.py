@@ -11,7 +11,7 @@ def projects(request):
 
 def project(request, pk):
     project = Project.objects.get(id=pk)
-    return render(request, 'projects/single-project.html', {'project': project})
+    return render(request, 'projects/project.html', {'project': project})
 
 
 def createProject(request):

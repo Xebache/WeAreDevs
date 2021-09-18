@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # !!! install apps in settings !!!
     'projects.apps.ProjectsConfig',
     'users.apps.UsersConfig'
 ]
@@ -57,6 +58,7 @@ ROOT_URLCONF = 'msn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # !!! global templates (main, navbar, etc) !!! 
         'DIRS': [
             BASE_DIR / 'templates'
         ],
@@ -128,6 +130,8 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
      BASE_DIR / 'static'
 ]
+
+# !!! access to static/images !!!
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
