@@ -1,4 +1,6 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %} 
+
+{% block content %}
 <main class="profile my-md">
     <div class="container">
         <div class="layout">
@@ -8,27 +10,37 @@
                         <img class="avatar avatar--xl" src="{{user.profile_image.url}}" />
                         <h2 class="dev__name">{{user.name}}</h2>
                         <p class="dev__title">{{user.headline}}</p>
+
                         {% if user.location %}
                         <p class="dev__location">Based in {{user.location}}</p>
                         {% endif %}
+                        
                         <ul class="dev__social">
+
                             {% if user.social_github %}
                             <li>
                                 <a title="Github" href="{{user.social_github}}" target="_blank"><i class="im im-github"></i></a>
                             </li>
-                            {% endif %} {% if user.social.twitter %}
+                            {% endif %} 
+
+                            {% if user.social.twitter %}
                             <li>
                                 <a title="Twitter" href="{{user.social_twitter}}" target="_blank"><i class="im im-twitter"></i></a>
                             </li>
-                            {% endif %} {% if user.social_linkedin %}
+                            {% endif %} 
+
+                            {% if user.social_linkedin %}
                             <li>
                                 <a title="LinkedIn" href="{{user.social_linkedin}}" target="_blank"><i class="im im-linkedin"></i></a>
                             </li>
-                            {% endif %} {% if user.social_website %}
+                            {% endif %} 
+
+                            {% if user.social_website %}
                             <li>
                                 <a title="Personal Website" href="{{user.social_website}}" target="_blank"><i class="im im-globe"></i></a>
                             </li>
                             {% endif %}
+
                         </ul>
                         <a href="#" class="btn btn--sub btn--lg">Send Message </a>
                     </div>
@@ -51,8 +63,11 @@
                         <h3 class="devInfo__subtitle">Other Skills</h3>
 
                         <div class="devInfo__otherSkills">
+
                             {% for skill in otherSkills %}
-                            <span class="tag tag--pill tag--sub tag--lg"><small>{{skill.name}}</small></span> {% endfor %}
+                            <span class="tag tag--pill tag--sub tag--lg"><small>{{skill.name}}</small></span> 
+                            {% endfor %}
+
                         </div>
                     </div>
                 </div>
@@ -74,7 +89,8 @@
                                         <div class="project__tags">
 
                                             {% for tag in project.tags.all %}
-                                            <span class="tag tag--pill tag--main"><small>{{tag.name}}</small></span> {% endfor %}
+                                            <span class="tag tag--pill tag--main"><small>{{tag.name}}</small></span> 
+                                            {% endfor %}
 
                                         </div>
                                     </div>
@@ -89,4 +105,4 @@
         </div>
     </div>
 </main>
-{% endblock %}
+{% endblock content %}

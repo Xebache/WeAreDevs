@@ -1,24 +1,35 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 
 {% load static %}
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
-  <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
-  <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
-  <title>We are &#60;devs&#47;&#62;</title>
-  </head>
-  <body>
-      {% include 'navbar.html' %}
-    <main>
-      {% block content %} 
-      {% endblock content %}
-    </main>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+    <title>We are &#60;devs&#47;&#62;</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %} 
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} 
+    
+    {% block content %} 
+    {% endblock content %}
+
     <footer></footer>
-  </body>
+</body>
+
 </html>

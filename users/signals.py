@@ -18,13 +18,15 @@ def createdProfile(sender, instance, created, **kwargs):
             user = user,
             username = user.username
         )
-    else:
+    """   
+    elif instance is not None:
         user = instance
-        profile = Profile.objects.update(
+        profile = user.update(
             username = user.username,
             email = user.email,
             name = user.first_name
         )
+    """
 
 def deleteUser(sender, instance, **kwargs):
     user = instance.user
