@@ -177,7 +177,7 @@ img {
   ========================*/
 
 .hero-section {
-    height: 40vh;
+    height: 25vw;
     display: flex;
     align-items: center;
     background-color: var(--color-sub);
@@ -203,6 +203,9 @@ img {
 }
 
 @media screen and (max-width: 800px) {
+    .hero-section{
+        height: 30vw;
+    }
     .hero-section__box>h2,
     .hero-section__box>h2>span {
         font-size: 3rem;
@@ -250,6 +253,9 @@ img {
 }
 
 @media screen and (max-width: 700px) {
+    .hero-section{
+        height: 40vh;
+    } 
     .hero-section__search>.form {
         display: flex;
         flex-direction: column;
