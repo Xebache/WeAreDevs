@@ -16,22 +16,25 @@ def createdProfile(sender, instance, created, **kwargs):
         user = instance
         profile = Profile.objects.create(
             user = user,
-            username = user.username
-        )
-    """   
-    elif instance is not None:
-        user = instance
-        profile = user.update(
             username = user.username,
             email = user.email,
             name = user.first_name
         )
-    """
+    
+def updateUser(sender, instance, created, **kwargs):
+    profile = instance
+    user = profile.user
+    if created == False:
+        user.first_name = profile.name
+        user.username = profile.username
+        user.email = profile.email
+        user.save()
 
 def deleteUser(sender, instance, **kwargs):
     user = instance.user
     user.delete()
 
 post_save.connect(createdProfile, sender=User)
+post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
 

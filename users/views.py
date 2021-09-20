@@ -5,7 +5,7 @@ from django.contrib import messages
 
 from django.contrib.auth.models import User
 from .models import Profile
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 
 
 def loginUser(request):
@@ -52,7 +52,7 @@ def registerUser(request):
             messages.success(request, "User account was created")
 
             login(request, user)
-            return redirect('profiles')
+            return redirect('edit-profile')
 
         else:
             messages.error(request, "An error has occurred during registration")
@@ -82,3 +82,17 @@ def userAccount(request):
     projects = profile.project_set.all()
     context = {'profile': profile, 'skills': skills, 'projects':projects}
     return render(request, 'users/account.html', context)
+
+@login_required(login_url="login")
+def editProfile(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)    #prefill form
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+
+    context = {'form':form}
+    return render(request, 'users/profile_form.html', context)

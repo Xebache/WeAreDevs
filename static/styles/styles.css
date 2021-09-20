@@ -881,3 +881,34 @@ img {
     margin-bottom: 1rem;
     margin-top: 2rem;
 }
+
+.formPage .formHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formPage .formHeader h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.formPage .btn {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.formPage::after {
+    z-index: -1;
+    opacity: 0.1;
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(../images/pattern.jpg);
+}
