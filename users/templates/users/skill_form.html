@@ -6,19 +6,17 @@
       <div class="formHeader">
         <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"></i></a>
         {% if page == 'create' %}
-        <h1>Add a Project</h1>
+        <h1>Add a Skill</h1>
         {% else %}
-        <h1>Edit a Project</h1>
+        <h1>Edit a Skill</h1>
         {% endif %}
       </div>
       <br />
-      <form class="form" method="POST" enctype="multipart/form-data">
+      <form method="POST" action="">
         {% csrf_token %} 
         {% for field in form %}
-        <div class="form__field">
-          <label for="formInput#text">{{field.label}}</label>
-          {{field}}
-        </div>
+        <label for="formInput#text">{{field.label}}</label>
+        {{field}} 
         {% endfor %}
         <input class="btn btn--sub btn--lg my-md" type="submit" value="Submit"/>
       </form>
