@@ -29,13 +29,13 @@ def loginUser(request):
             login(request, user)
             return redirect('profiles')
         else:
-            messages.error(request, 'username OR password does not exist')
+            messages.error(request, 'Username OR Password does not exist')
 
     return render(request, 'users/login_register.html')
 
 def logoutUser(request):
     logout(request)
-    messages.error(request, 'User was logged out')
+    messages.info(request, 'User was logged out')
     return redirect('login')
 
 def registerUser(request):

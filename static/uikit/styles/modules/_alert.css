@@ -8,6 +8,11 @@
   border: 1px solid var(--color-white-light);
   margin-bottom: 1rem;
   margin-right: 1rem;
+  position: fixed;
+  left: 50%;
+  top: 10.5vw;
+  transform: translate(-50%, 0);
+  z-index: 50;
 }
 
 .alert,

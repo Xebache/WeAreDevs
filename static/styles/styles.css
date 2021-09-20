@@ -661,11 +661,10 @@ img {
   ========================*/
 
 .auth {
-    width: 100%;
     position: relative;
+    border: 1pxs solid red;
     z-index: 1;
     background: transparent;
-    height: 99vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -688,6 +687,7 @@ img {
     padding: 3rem 4rem;
     width: 95%;
     max-width: 65rem;
+    margin-top: 7.5vw;
 }
 
 @media screen and (min-width: 650px) {
@@ -723,6 +723,7 @@ img {
 
 .auth .auth__actions {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 2.5rem 0;
@@ -730,11 +731,21 @@ img {
 
 .auth .auth__actions a {
     text-decoration: underline;
+    margin-top: 1rem;
+}
+
+.auth .auth__alternative {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .auth .auth__alternative a {
     font-size: 2rem;
     font-weight: 500;
+    margin-left: 1rem;
 }
 
 
