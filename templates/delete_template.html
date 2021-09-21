@@ -1,5 +1,4 @@
-{% extends 'main.html' %} 
-{% block content %}
+{% extends 'main.html' %} {% block content %}
 <main class="formPage my-xl">
   <div class="content-box">
     <div class="formWrapper">
@@ -7,8 +6,8 @@
         {% csrf_token %}
         <p class="content">Are your sure you want to delete "{{object}}" ?</p>
         <div class="buttonWrapper">
-            <a class="btn btn--sub btn--lg my-md" href="{% url 'account' %}">Go Back</a>
-            <input class="btn btn--sub btn--lg my-md" type="submit" value="Delete"/>
+          <a class="btn btn--sub btn--lg my-md" href="{{request.GET.next}}">Go Back</a>
+          <input class="btn btn--sub btn--lg my-md" type="submit" value="Delete"/>
         </div>
       </form>
     </div>
