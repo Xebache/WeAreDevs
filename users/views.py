@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
+from .utils import searchProfiles
 
 
 def loginUser(request):
@@ -30,8 +31,9 @@ def loginUser(request):
             return redirect('profiles')
         else:
             messages.error(request, 'Username OR Password does not exist')
-
-    return render(request, 'users/login_register.html')
+            
+    context = {'page':page}
+    return render(request, 'users/login_register.html', context)
 
 
 def logoutUser(request):
@@ -64,8 +66,11 @@ def registerUser(request):
 
 
 def profiles(request):
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles}
+    
+
+    profiles, search = searchProfiles(request)
+
+    context = {'profiles': profiles, 'search':search}
     return render(request, 'users/profiles.html', context)
 
 
