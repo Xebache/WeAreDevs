@@ -912,3 +912,21 @@ img {
     right: 0;
     background: url(../images/pattern.jpg);
 }
+
+.formPage .buttonWrapper {
+    display: flex;
+    width: 30vw;
+    position: relative;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+}
+
+.formPage .buttonWrapper .btn {
+    left:0;
+    transform: translateX(0);
+}
+
+.formPage .content {
+    text-align: center;
+}

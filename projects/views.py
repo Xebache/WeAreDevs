@@ -27,6 +27,7 @@ def createProject(request):
             # link project owner to profile !!!
             project = form.save(commit=False)
             project.owner = profile
+            project.save()
             return redirect('projects')
 
     context = {'form': form, 'page':page}

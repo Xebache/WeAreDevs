@@ -5,9 +5,11 @@
     <div class="formWrapper">
       <form class="form" method="POST">
         {% csrf_token %}
-        <p>Are your sure you want to delete "{{object}}" ?</p>
-        <a class="btn btn--sub btn--lg my-md" href="{% url 'account' %}">Go Back</a>
-        <input class="btn btn--sub btn--lg my-md" type="submit" value="Delete"/>
+        <p class="content">Are your sure you want to delete "{{object}}" ?</p>
+        <div class="buttonWrapper">
+            <a class="btn btn--sub btn--lg my-md" href="{% url 'account' %}">Go Back</a>
+            <input class="btn btn--sub btn--lg my-md" type="submit" value="Delete"/>
+        </div>
       </form>
     </div>
   </div>
