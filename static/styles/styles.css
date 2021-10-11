@@ -1,5 +1,6 @@
 :root {
     --color-sub: #2d2d39;
+    overflow-x: hidden;
 }
 
 .btn--sub {
@@ -36,6 +37,7 @@ img {
     background-color: var(--color-sub);
     padding: 1.5rem 0;
     width: 100vw;
+
 }
 
 .header>.container {
