@@ -28,11 +28,9 @@ class Project(models.Model):
 
 
 class Review(models.Model):
-    VOTE_TYPE = (
-        ('up', 'Up Vote'),
-        ('down', 'Down Vote')
-    )
-    # owner =
+    VOTE_TYPE = (('', 'Add your vote'),('Up', 'Up Vote'), ('Down', 'Down Vote'))
+    
+    owner = models.ForeignKey(Profile, null=True, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     body = models.TextField(null=True, blank=True)
     value = models.CharField(max_length=200, choices=VOTE_TYPE)
@@ -41,6 +39,9 @@ class Review(models.Model):
 
     def __str__(self):
         return self.value
+
+    class Meta:
+        unique_together = [['owner', 'project']]
 
 
 class Tag(models.Model):

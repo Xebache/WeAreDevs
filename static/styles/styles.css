@@ -557,13 +557,29 @@ img {
     border-top: 2px solid var(--color-light);
 }
 
-.comments .form label {
+/* .comments .form label {
     position: absolute;
     margin: -9999px;
-}
+} */
 
 .commentList {
     margin: 3rem 0;
+}
+
+.comments .form select {
+    min-width: 24rem;
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s ease-in-out;
+    background-color: #f8fafd;
+    outline: none;
+}
+
+.comments .form select:focus {
+    outline: none;
+    border: 2px solid #5aa5b9;
 }
 
 .comment {

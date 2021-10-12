@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 from .models import Project
-from .forms import ProjectForm
+from .forms import ProjectForm, ReviewForm
 from .utils import searchProjects, paginateProjects
 
 
@@ -18,7 +18,18 @@ def projects(request):
 
 def project(request, pk):
     project = Project.objects.get(id=pk)
-    return render(request, 'projects/project.html', {'project': project})
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        review = form.save(commit=False)
+        review.project = project
+        review.owner = request.user.profile
+        review.save()
+
+        return redirect('project', pk=project.id)
+
+    return render(request, 'projects/project.html', {'project': project, 'form':form})
 
 
 @login_required(login_url="login")
@@ -34,6 +45,8 @@ def createProject(request):
             project = form.save(commit=False)
             project.owner = profile
             project.save()
+
+            messages.success(request, 'Message sent successfully')
             return redirect('projects')
 
     context = {'form': form, 'page':page}
