@@ -60,7 +60,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # !!! global templates (main, navbar, etc) !!! 
         'DIRS': [
-            BASE_DIR / 'templates'
+            BASE_DIR / 'templates', BASE_DIR / 'projects/templates/projects', BASE_DIR / 'users/templates/users'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
