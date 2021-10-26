@@ -817,8 +817,8 @@ img {
 
 .message>a {
     display: flex;
-    gap: 1rem;
-}
+    gap: 4rem;
+} 
 
 .message__author,
 .message__date {
